@@ -9,7 +9,12 @@ void *task1 ()
 	salin = fopen("salinan1.txt", "w");
 
 	char kar;
-	while((kar=fgetc(baca))!=EOF) fputc(kar,salin);
+	while((kar=fgetc(baca))!=EOF)
+	{
+		//fprintf(salin, "thread 1 : ");
+		fputc(kar,salin);
+		//fprintf(salin, "\n");
+	}
 	fclose(baca);
 	fclose(salin);
 }
@@ -23,7 +28,9 @@ void *task2 ()
 	char isi;;
 	while((isi=fgetc(in))!=EOF) 
 	{
+		//fprintf(out, "thread 2 : ");
 		fputc(isi,out);
+		//fprintf(out, "\n");
 	}
 	fclose(in);
 	fclose(out);

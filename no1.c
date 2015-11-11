@@ -69,7 +69,8 @@ int main()
 		gethostname(namakomputer,100);
 		getcwd(namadirektori,100);
 		printf("%s@%s:~%s$ ",getenv("LOGNAME"),namakomputer,namadirektori);
-                signal(SIGTSTP,signalhandler);
+                signal(SIGINT,signalhandler);
+		signal(SIGTSTP,signalhandler);
 		if(fgets(cmd,100,stdin)==NULL){
 			printf("\n");
 			break;
